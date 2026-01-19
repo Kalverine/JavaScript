@@ -1,9 +1,64 @@
-index.html
 <!DOCTYPE html>
 <html>
- <head> 
-    <meta charset="UTF-8">
- </head>
- <body>
-   <h2> Khalid Aras </h2>
- </body>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Lab 1</title>
+	<style>
+		*{font-family:Roboto,Helvetica,Arial,sans-serif;}
+		body{padding:10px;}
+	</style>
+</head>
+<body>
+	<h1>IT-2320 - Lab 1: Language Constructs</h1>
+	<h2>Student Name: Khalid Aras</h2>
+	<p>
+	Output:
+	</p><div id="output"></div>
+	<p></p>
+	<p>
+	Values:<br>
+	</p><div id="values"></div>
+	<p></p> 
+	<p>
+	Sum:
+	</p><div id="sum"></div>
+	<p></p>
+	<!-- Place your JavaScript code here -->
+	 <script>
+		/* 
+		Author: Khalid Aras
+		Class: IT-2320
+		*/
+		let name = "Khalid Aras";
+		document.write("Lab 1. Completed by " + name + "<br><br>");
+		console.log("Note: Lab 1. Completed by " + name);
+		document.getElementById("output").innerHTML = "innerHTML value set";
+
+		let valuesOutput = ""
+		for (let i = 1; i <= 10; i++) {
+			valuesOutput += i + "<br>";
+		}
+		document.getElementById("values").innerHTML = valuesOutput;
+
+		let sum = 0;
+		let counter = 1;
+		while (counter <= 10) {
+			sum += counter;
+			counter++;
+		}
+		document.getElementById("sum").innerHTML = sum;
+
+		let a = 5;
+		let b = 10;
+		let c = 15;
+
+		document.write("Sum of a, b, and c: " + (a + b + c) + "<br>");
+
+		if (a < b) {
+			document.write("a < b");
+		} else {
+			document.write("a > b");
+		}
+	 </script>
+</body>
