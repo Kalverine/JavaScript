@@ -5,28 +5,62 @@
     <style>
 		/* CSS Styles */
 		* { font-family: Roboto, Helvetica, Arial, sans-serif; 
-		body { padding: 10px; }
+		
+		  }
+	
+		body { 
+			padding: 10px; 
+		}
 	</style>	
     <title>Lab 2</title>
 	<script>
 		// add functions here
-		function helloWorld() {
-			document.write("Hello World!");
+		function add (a ,b) {
+			return a + b;
 		}
-		// this is a function that is called when the page finishes loading
-		// put any functions that are called on page load into theis single function
-		document.addEventListener("DOMContentLoaded", function() {
-			// put your function calls here
+
+		function subtract (a ,b) {
+			return a - b;
+		}
+
+		function sum() {
+			let total = 0;
+			for (let i = 0; i < arguments.length; i++) {
+				total += arguments[i]; 
+			}
+			return total;
+		}
+
+		function setTitle() {
+			document.getElementById("title").textContent =
+				"Hello, this is Lab 2!";
+		}
+
+		function studentName(name) {
+			document.getElementById("student").textContent = name;
+		}
+
+		let secondsSinceLoad = 0;
+
+		const updateSeconds = () =>
+			document.getElementById("seconds").textContent = ++secondsSinceLoad;
+
+		document.addEventListener("DOMContentLoaded", function () {
+			setTitle ();
+			studentName("Khalid Aras");
+			setInterval(updateSeconds, 1000);
 		});
 	</script>
 </head>
 <body>
 	<h1 id="title">Title</h1>
 	<h2 id="student">Khalid Aras</h2>
-	Seconds since page loaded: <div id="seconds"></div>
+	Seconds since page loaded: <div id="seconds">0</div>
 	<script>
-		// any calls using document.write() here
-		helloWorld();
-    </script>
+	// any calls using document.write() here
+		document.writeln("add(10, 15) = " + add(10, 15) + "<br>");
+		document.writeln("subtract(45, 10) = " + subtract(45, 10) + "<br>");
+		document.writeln("sum(5, 10, 20, 30) = " + sum(5, 10, 20, 30) + "<br>");
+	</script>
 </body>
 </html>
