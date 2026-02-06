@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 4 - Objects, classes, and Maps</title>
+</head>
+    <body>
+        <h1>Lab 4</h1>
+
+        <script>
+            // Student class //
+            class Student {
+                constructor(name, major, gpa, classesTaken) {
+                    this.name = name;
+                    this.major = major;
+                    this.gpa = gpa;
+                    this.classesTaken = classesTaken;
+                }
+                displayProperties() {
+                    document.writeln("Student Name:" + this.name + "<br>");
+                    document.writeln("Student Major:" + this.major + "<br>");
+                    document.writeln("Student GPA:" + this.gpa + "<br>");
+                    document.writeln("Student Classes Taken:" + this.classesTaken.join(",") + "<br><br>");
+                }
+            }
+
+            const student1 = new Student(
+                "Your Name",
+                "Your Major",
+                3.0,
+                ["IT-1025", "IT-2320", "IT-1050"]
+            );
+            student1.displayProperties();
+
+            // Course Object//
+
+            const Course = {
+                courseId: "IT-2320",
+                title: "IT-2320",
+                crsDesc: "Interactive Internet Programming",
+                creditHrs: 4,
+
+                displayCourse() {
+                    const values = Object.values(this);
+                    for (let i = 0; i < values.length - 1; i++) {
+                        document.writeln(values[i] + "<br>");
+                    }
+                    document.writeln("<br>");
+                }
+            };
+
+            Course.displayCourse();
+
+            // Planet Object//
+
+            const planet = {
+                name: "Mercury",
+                diameterMiles: 3031.9
+            };
+
+            planet.millMilesFromEarth = 48;
+            document.writeln("Planet Name: " + planet.name + "<br>");
+            document.writeln("Diameter in Miles: " + planet.diameterMiles + "<br>");
+            document.writeln("Million Miles from Earth: " + planet.millMilesFromEarth + "<br><br>");
+
+            // FavoriteLangues//
+            const favoriteLanguages = new Set();
+
+            favoriteLanguages.add("JavaScript");
+            favoriteLanguages.add("Python");
+            favoriteLanguages.add("Swift");
+            favoriteLanguages.add("Dart");
+
+            for (let language of favoriteLanguages) {
+                console.log(language);
+            }
+
+            // credit hours map//
+
+            const creditHrs = new Map();
+
+            creditHrs.set("IT-1025", 3);
+            creditHrs.set("IT-1050", 3);
+            creditHrs.set("IT-2310", 3);
+            creditHrs.set("IT-2320", 4);
+            creditHrs.set("IT-2030", 4);
+            creditHrs.set("IT-2351", 4);
+            creditHrs.set("IT-2650", 4);
+
+            document.writeln("Credit Hours for IT-2030: " + creditHrs.get("IT-2030") + "<br><br>");
+
+            for (let [course, hours] of creditHrs) {
+                document.writeln(course + ": " + hours + " credit hours<br>");
+            }
+        </script>
+    </body>
