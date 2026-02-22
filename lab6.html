@@ -22,6 +22,15 @@
       let xhr = new XMLHttpRequest();
       xhr.open("GET", "ajax.txt");
       xhr.onload = function () {
+        document.getElementById("ajax").textContent = xhr.responseText;
+      };
+      xhr.send();
+
+      fetch("fetch.txt")
+      .then(response => response.text())
+      .then(text => {
+        document.getElementById("fetch").textContent = text;
+      });
         
     </script>
 
